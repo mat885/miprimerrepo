@@ -32,6 +32,7 @@
     .main {
       flex-grow: 1;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       font-size: 1.5em;
@@ -41,30 +42,63 @@
       padding: 10px 20px;
       font-size: 1em;
       cursor: pointer;
+      margin: 5px;
     }
 
-    .left {
-      text-align: left;
-    }
-
-    .right {
-      text-align: right;
+    #mensaje {
+      margin-top: 20px;
+      color: red;
+      font-size: 1em;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="left">
-      <button onclick="location.href='calcular.html'">Calcular</button>
+      <button id="calcularBtn">Calcular</button>
     </div>
     <div class="center"></div>
-    <div class="right">
+    <div class="right" id="userControls">
       <button onclick="location.href='registro.html'">Registrarse</button>
     </div>
   </header>
 
   <div class="main">
     <p>Este es mi texto personalizado: ¡Bienvenido a mi sitio web!</p>
+    <div id="mensaje"></div>
   </div>
+
+  <script>
+    // Simulación de sesión
+    const usuario = localStorage.getItem("usuario"); // Ejemplo: "Matías"
+
+    const userControls = document.getElementById("userControls");
+    const mensaje = document.getElementById("mensaje");
+    const calcularBtn = document.getElementById("calcularBtn");
+
+    // Mostrar controles según sesión
+    if (usuario) {
+      userControls.innerHTML = `
+        <span>${usuario}</span>
+        <button onclick="cerrarSesion()">Cerrar sesión</button>
+      `;
+    }
+
+    // Acción del botón Calcular
+    calcularBtn.addEventListener("click", () => {
+      if (!usuario) {
+        mensaje.textContent = "Debes iniciar sesión primero.";
+      } else {
+        mensaje.textContent = "¡Calculando resultados para " + usuario + "!";
+        // Aquí puedes redirigir o ejecutar lógica real
+      }
+    });
+
+    // Función para cerrar sesión
+    function cerrarSesion() {
+      localStorage.removeItem("usuario");
+      location.reload();
+    }
+  </script>
 </body>
 </html>
