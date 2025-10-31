@@ -2,10 +2,69 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Proyecto</title>
+  <title>Inicio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .left, .right {
+      flex: 1;
+    }
+
+    .center {
+      flex: 2;
+      text-align: center;
+    }
+
+    .main {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5em;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .left {
+      text-align: left;
+    }
+
+    .right {
+      text-align: right;
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenido a mi proyecto</h1>
-  <p>Este es el archivo principal de la aplicación web.</p>
+  <header>
+    <div class="left">
+      <button onclick="location.href='calcular.html'">Calcular</button>
+    </div>
+    <div class="center"></div>
+    <div class="right">
+      <button onclick="location.href='registro.html'">Registrarse</button>
+    </div>
+  </header>
+
+  <div class="main">
+    <p>Este es mi texto personalizado: ¡Bienvenido a mi sitio web!</p>
+  </div>
 </body>
 </html>
