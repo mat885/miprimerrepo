@@ -2,45 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Página</title>
-    <style>
-        body { font-family: Arial; text-align: center; margin: 0; }
-        header { display: flex; justify-content: space-between; padding: 10px 20px; background-color: #f0f0f0; }
-        .btn { padding: 10px 20px; cursor: pointer; }
-        #mensaje { color: red; margin-top: 20px; }
-    </style>
+    <title>Preguntas</title>
 </head>
 <body>
-    <header>
-        <div>
-            <button class="btn" onclick="calcular()">Calcular</button>
-        </div>
-        <div>
-            {% if user.is_authenticated %}
-                <span>{{ user.username }}</span>
-                <a href="{% url 'logout' %}" class="btn">Cerrar sesión</a>
-            {% else %}
-                <a href="{% url 'login' %}" class="btn">Registrarse</a>
-            {% endif %}
-        </div>
-    </header>
+    <h2>Cuestionario</h2>
+    <form>
+        <p>1. ¿Cuál es tu huella de carbono diaria?</p>
+        <input type="text"><br><br>
 
-    <main>
-        <h1>Bienvenido a mi página personalizada</h1>
-        <p>Este es el texto que tú elijas, Matías.</p>
-        <div id="mensaje"></div>
-    </main>
+        <p>2. ¿Usas transporte público regularmente?</p>
+        <input type="text"><br><br>
 
-    <script>
-        function calcular() {
-            const usuarioAutenticado = {{ user.is_authenticated|yesno:"true,false" }};
-            const mensaje = document.getElementById("mensaje");
-            if (!usuarioAutenticado) {
-                mensaje.textContent = "Debes iniciar sesión primero.";
-            } else {
-                mensaje.textContent = "¡Cálculo realizado!";
-            }
-        }
-    </script>
+        <p>3. ¿Reciclas en casa?</p>
+        <input type="text"><br><br>
+
+        <p>4. ¿Consumes productos locales?</p>
+        <input type="text"><br><br>
+
+        <p>5. ¿Cuántas veces a la semana comes carne?</p>
+        <input type="text"><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>
