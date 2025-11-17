@@ -1,17 +1,22 @@
 <head>
     <title>Calculadora de CO₂</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        input[type="number"] { width: 100px; padding: 5px; margin-bottom: 10px; }
+        button { padding: 8px 16px; cursor: pointer; }
+        #resultado { margin-top: 20px; font-weight: bold; color: green; }
+    </style>
 </head>
 <body>
-    <h2>Calculadora de emisiones de CO₂</h2>
     <form id="formulario">
         <p>1. ¿Cuántas veces a la semana comes carne?</p>
-        <input type="number" id="carne" required><br>
+        <input type="number" id="carne" min="0" required><br>
 
         <p>2. ¿Cuántos km recorres semanalmente en auto?</p>
-        <input type="number" id="auto" required><br>
+        <input type="number" id="auto" min="0" required><br>
 
         <p>3. ¿Cuántos km viajas en avión cada año?</p>
-        <input type="number" id="avion" required><br>
+        <input type="number" id="avion" min="0" required><br>
 
         <button type="button" id="calcularBtn">Calcular</button>
     </form>
